@@ -102,7 +102,7 @@ def merge_api_logs():
     print("Merging API logs: Batch + Speed layers")
 
     batch_df = load_all_csv(
-        S3_BUCKET, f"{SILVER_PREFIX}api_logs/")
+        f"{SILVER_PREFIX}api_logs/")
     speed_df = load_all_csv(
         f"{REALTIME_PREFIX}api_logs/{date_path}/")
 
@@ -218,7 +218,7 @@ def merge_ecommerce():
     print("Merging E-Commerce: Batch + Speed layers")
 
     batch_df = load_all_csv(
-        S3_BUCKET, f"{SILVER_PREFIX}ecommerce_clicks/")
+        f"{SILVER_PREFIX}ecommerce_clicks/")
     speed_df = load_all_csv(
         f"{REALTIME_PREFIX}ecommerce_clicks/{date_path}/")
 

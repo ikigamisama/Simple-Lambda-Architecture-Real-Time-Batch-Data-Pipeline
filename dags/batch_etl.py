@@ -14,7 +14,7 @@ with DAG(
     default_args=default_args,
     start_date=datetime(2025, 11, 1),
     description='Batch ETL processing all 5 realtime streams: Bronze → Silver → Gold',
-    schedule=None,
+    schedule='0 2 * * *',
     catchup=False,
     tags=["batch", "etl", "lambda-architecture"],
 ) as dag:
