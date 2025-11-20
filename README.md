@@ -33,8 +33,7 @@ Live demo available on request (Airflow UI + sample dashboards).
 
 ## 🏆 Demo Screenshot (Airflow DAGs Running)
 
-![Airflow DAGs Overview](https://i.imgur.com/example-airflow-screen.png)  
-_(Replace with your actual screenshot — highly recommended! Shows successful runs, task dependencies, and timing)_
+![Airflow DAGs Overview](image.png)
 
 ---
 
