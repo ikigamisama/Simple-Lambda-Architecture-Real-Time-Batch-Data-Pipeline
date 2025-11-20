@@ -28,6 +28,8 @@ It combines **real-time ingestion (Speed Layer)**, **daily batch ETL (Batch Laye
                    └──────────────────────────────┘
 ```
 
+![alt text](image.png)
+
 The pipeline processes five real-time event streams:
 
 - IoT sensors
