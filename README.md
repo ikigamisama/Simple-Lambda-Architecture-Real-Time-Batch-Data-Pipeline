@@ -40,17 +40,26 @@ _(Replace with your actual screenshot — highly recommended! Shows successful r
 
 ## 🏗 Architecture Diagram (Mermaid — renders beautifully on GitHub)
 
-```mermaid
-flowchart TD
-    A[Event Generators\n(5 streams)] -->|Every 5 min| B(Speed Layer\nReal-time ingest)
-    A -->|Daily 2:00 AM| C(Batch Layer\nFull ETL + Medallion)
-    B --> D[S3 realtime/]
-    C --> E[S3 batch/bronze,silver,gold]
-    D & E -->|Every 10 min| F(Serving Layer\nMerge latest real-time + batch)
-    F --> G[S3 serving/unified\nserving/dashboards\nserving/alerts]
-    style B fill:#e3f2fd
-    style C fill:#f3e5f5
-    style F fill:#e8f5e8
+```text
+                    ┌──────────────────────────────┐
+                   │          Speed Layer          │
+                   │       (Real-Time Ingest)      │
+                   │  Interval: Every 5 minutes    │
+                   └───────────────┬───────────────┘
+                                   │
+                                   ▼
+                   ┌──────────────────────────────┐
+                   │          Batch Layer          │
+                   │      Daily ETL at 2:00 AM     │
+                   └───────────────┬───────────────┘
+                                   │
+                                   ▼
+                   ┌──────────────────────────────┐
+                   │          Serving Layer       │
+                   │     Merge Batch + Real-Time  │
+                   │   Interval: Every 10 minutes │
+                   │   Interval: Every 10 minutes │
+                   └──────────────────────────────┘
 ```
 
 ## ⚙️ Airflow DAGs Overview
