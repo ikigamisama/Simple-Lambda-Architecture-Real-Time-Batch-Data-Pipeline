@@ -1,5 +1,5 @@
 import pandas as pd
-from datafakegenerator import DataFakeGenerator
+from synthetic_data_crafter import SyntheticDataCrafter
 from tools.s3 import S3
 from io import BytesIO
 from datetime import datetime, timezone
@@ -494,7 +494,7 @@ schema_financial_transactions = [
 
 
 def to_df(n, schema):
-    data = DataFakeGenerator(schema).many(n).data
+    data = SyntheticDataCrafter(schema).many(n).data
     return pd.DataFrame([{**row, "timestamp": datetime.now(timezone.utc).isoformat()} for row in data])
 
 

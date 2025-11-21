@@ -37,5 +37,5 @@ kafka-python
 pyyaml
 python-dotenv
 free-proxy
-datafakegenerator
+synthetic-data-crafter
 openpyxl
